@@ -1,0 +1,48 @@
+<mat-drawer-container class="example-container" autosize>
+  <!-- SIDEBAR -->
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened="">
+   <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <!-- SIDEBAR -->
+
+
+<!-- CONTENIDO -->
+  <div class="example-sidenav-content">
+
+    <!-- TOOLBAR -->
+    <mat-toolbar>
+      <div>
+        <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Curso360</span>
+        <span class="example-spacer"></span>
+      </div>
+      <div>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" [matMenuTriggerFor]="beforeMenu">
+          <mat-icon  matBadge="15" matBadgeColor="warn">notifications</mat-icon></button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button mat-menu-item>Profile</button>
+          <button mat-menu-item><mat-icon>settings</mat-icon> Account Settings</button>
+          <button mat-menu-item><mat-icon>help</mat-icon> and Support</button>
+          <hr/>
+          <button mat-menu-item>Log Out<mat-icon>logout</mat-icon></button>
+        </mat-menu>
+
+
+
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" [matMenuTriggerFor]="beforeMenu"><mat-icon>account_circle</mat-icon></button>
+          <mat-menu #beforeMenu="matMenu" xPosition="before" >
+            <button mat-menu-item>Profile</button>
+            <button mat-menu-item><mat-icon>settings</mat-icon> Account Settings</button>
+            <button mat-menu-item><mat-icon>help</mat-icon> and Support</button>
+            <hr/>
+            <button mat-menu-item>Log Out<mat-icon>logout</mat-icon></button>
+          </mat-menu>
+      </div>
+   </mat-toolbar>
+   <main class="main-container">
+    <app-users></app-users>
+   </main>
+  </div>
+</mat-drawer-container>

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProyectoFinalCoderHouse';
+  showPage = 1
+  constructor(){
+
+  }
 }

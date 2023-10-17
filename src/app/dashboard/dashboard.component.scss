@@ -1,0 +1,48 @@
+.example-container {
+  height: 100vh;
+}
+
+.example-sidenav {
+  padding: 20px;
+  width: 270px;
+  background-color: #ffffff;
+  padding: 0;
+}
+
+.mat-button-toggle {
+  color: #6248cd;
+  font-size: 1rem;
+}
+.example-card {
+  max-width: 400px;
+}
+
+.mat-toolbar{
+  background-color: #6248cd;
+  color: #fff;
+}
+
+//sidevar
+.mat-button-toggle-group{
+  display: flex;
+  flex-direction: column;
+  border: none;
+  .mat-button-toggle{
+    border: none;
+  }
+}
+
+
+
+// toolbar
+.mat-toolbar{
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.demo-section + .demo-section {
+  margin-top: 16px;
+}
+

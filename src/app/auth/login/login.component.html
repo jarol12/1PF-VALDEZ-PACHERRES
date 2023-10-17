@@ -1,0 +1,65 @@
+<div class="container-login">
+
+  <div class="box row">
+    <div class="buttons"></div>
+    <div class="buttons"></div>
+    <div class="buttons"></div>
+    <section class="col-7 mt-5 pt-3 one-section">
+      <p style="font-size:1.3rem">APP ADMINISTRACIÓN
+      </p>
+      <img src="assets/images/dash.png" alt="imgLogin" width="500">
+     <p style="font-size:1rem">¡Disfruta de tu experiencia en la aplicación web!</p>
+    </section>
+    <section class="col">
+       <h2 class="mt-2">Hello!</h2>
+       <h4 class="h2">We are really happy to see you again!</h4>
+      <form  [formGroup]="userForm" (ngSubmit)="onSubmit">
+        <mat-icon style="font-size: 5rem;color: rgb(88, 88, 88); width: 100%; height: 12vh;display: flex;justify-content: center;">account_circle</mat-icon>
+        <mat-form-field >
+          <mat-label>email</mat-label>
+          <input matInput type="email" formControlName = "email">
+        </mat-form-field>
+         <mat-error *ngIf="emailControl.errors?.['pattern']" >
+           Email invalid
+         </mat-error>
+         <mat-error *ngIf="emailControlIsInvalid">
+          Email requerid
+         </mat-error>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+        </mat-form-field>
+          <mat-error *ngIf="passwordControlIsInvalid">
+            La contraseña es requerida.
+          </mat-error>
+          <mat-error *ngIf="passwordControl.errors?.['minlength']">
+            La contraseña debe tener al menos 8 caracteres
+          </mat-error>
+
+        <a href="#/log">forgot password</a>
+        <button class="mt-4" style="width: 40%;" type="submit" mat-fab extended color="primary">login</button>
+        <p>Or sign in with</p>
+      <span>
+      <button extended mat-fab><i class="fab fa-facebook-f"></i></button>
+      <button extended mat-fab><i class="fab fa-twitter"></i></button>
+      <button extended mat-fab><i class="fab fa-google"></i></button>
+      </span>
+      </form>
+      <p class="mt-4 d-flex justify-content-end" style="color: #5b5b5c;">Don't have on account? <a href="#" style="color: #7e64d2;text-decoration: none; font-weight: 600;">Signup</a></p>
+    </section>
+  </div>
+  <div class="linear-graphic">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="circle-graphic">
+    <div >
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
