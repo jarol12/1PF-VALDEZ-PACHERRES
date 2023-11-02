@@ -1,0 +1,36 @@
+.button-add{
+  position: fixed;
+  right: 2px;
+  bottom: 2px;
+}
+.show-button {
+  z-index: 2;
+  transition: all .2s ease-in-out;
+  transform: rotate(45deg);
+}
+
+
+.condition{
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ background-color: rgba(0,0,0,0.6);
+ top: 0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+ .one{
+  transform: translateY(300px);
+ }
+
+ .condition2{
+  display: none;
+ }
+
+
+.container-menu-add {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

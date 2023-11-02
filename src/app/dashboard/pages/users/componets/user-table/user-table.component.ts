@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./user-table.component.scss'],
 })
 export class UserTableComponent {
-  displayedColumns: string[] = ['position', 'fullName', 'address', 'phone', 'email'];
+  displayedColumns: string[] = ['position', 'fullName', 'address', 'phone', 'email','trans'];
   @Input() dataSource!: User[];
   selection = new SelectionModel<User>(true, []);
 }

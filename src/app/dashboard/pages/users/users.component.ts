@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { User } from './models/users';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from './componets/user-dialog/user-dialog.component';
+import { UsersService } from "./users.service";
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-users',
@@ -76,17 +79,38 @@ export class UsersComponent {
         email: "martadiaz@mail.com"
       }
     ];
+    sar=''
+
+    condicion1 = false;
+    users$: Observable<User[]>;
+
     constructor(
+      private usersService: UsersService,
       private matDialog: MatDialog,
-    ) {}
-    openUsersDialog(): void {
+    ) {
+      this.users$ = this.usersService.getUsers$();
+    }
+
+
+    changeCondition(): void{
+      this.condicion1?this.condicion1=false:this.condicion1 = true
+    }
+
+    onDeleteCourse(courseId: number): void {
+      this.users$ = this.usersService.deleteUsers$(courseId);
+    }
+
+
+    openUsersDialog(event: string): void {
+      this.sar = event
+      this.condicion1 = false
       this.matDialog
-        .open(UserDialogComponent)
+        .open(UserDialogComponent,{data: this.sar})
         .afterClosed()
         .subscribe({
           next: (v) => {
            const index = this.users[this.users.length-1].position
-            console.log("valor", index)
+      
             if(!!v){
               this.users = [
                 ...this.users,{
@@ -99,6 +123,4 @@ export class UsersComponent {
           },
         });
     }
-
-
 }

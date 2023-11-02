@@ -1,66 +1,157 @@
-<h1 mat-dialog-title>
-  "Editando usuario" : "Crear usuario"
-</h1>
-
-<div mat-dialog-content>
+<div mat-dialog-content [ngSwitch]="data" class="container-menu">
   <!-- Contenido... -->
-
-  <form [formGroup]="userForm">
-    <div class="row">
-      <div class="col-6">
-        <mat-form-field class="w-100">
-          <mat-label>Nombre</mat-label>
-          <input formControlName="name" matInput />
-          <mat-error>
-
-          </mat-error>
-        </mat-form-field>
-
+    <form [formGroup]="userForm" *ngSwitchCase="'add'" >
+        <h1 mat-dialog-title>
+         Add user
+       </h1>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="name" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Apellido</mat-label>
+            <input formControlName="lastName" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="col-6">
-        <mat-form-field class="w-100">
-          <mat-label>Apellido</mat-label>
-          <input formControlName="lastName" matInput />
-          <mat-error>
-
-          </mat-error>
-        </mat-form-field>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Phone</mat-label>
+            <input formControlName="phone" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Address</mat-label>
+            <input formControlName="address" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="col-12">
-        <mat-form-field class="w-100">
-          <mat-label>Email</mat-label>
-          <input formControlName="email" matInput />
-          <mat-error>
-          </mat-error>
-        </mat-form-field>
-      </div>
+      <div mat-dialog-actions>
+        <button mat-dialog-close mat-button>Cancelar</button>
+        <button (click)="onSubmit()" mat-button>
+          Guardar
+        </button>
     </div>
 
-    <div class="row">
-      <div class="col-6">
-        <mat-form-field class="w-100">
-          <mat-label>Phone</mat-label>
-          <input formControlName="phone" matInput />
-          <mat-error>
-          </mat-error>
-        </mat-form-field>
+    </form>
+
+    <form [formGroup]="userForm" *ngSwitchCase="'update'" >
+
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="name" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Apellido</mat-label>
+            <input formControlName="lastName" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="col-6">
-        <mat-form-field class="w-100">
-          <mat-label>Address</mat-label>
-          <input formControlName="address" matInput />
-          <mat-error>
-          </mat-error>
-        </mat-form-field>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Phone</mat-label>
+            <input formControlName="phone" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Address</mat-label>
+            <input formControlName="address" matInput />
+            <mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
+    </form>
+
+
+    <form [formGroup]="userForm" *ngSwitchCase="'search'" class="search">
+      <h1 mat-dialog-title>
+        Search user
+      </h1>
+      <img src="assets/images/dash-back.png" alt="">
+      <div class="row">
+        <div class="col-12">
+          <input type="text" placeholder="search user"
+          [(ngModel)]="searchTerm" (input)="applyFilter($event)"
+         [matAutocomplete]="auto"
+         class="example-input"
+          >
+          <mat-icon>search</mat-icon>
+          <mat-autocomplete #auto="">
+          <mat-option *ngFor="let item of users$ | async">
+          <a [href]="'dashboard/users/'+item.position">
+            {{ item.name }} {{ item.lastName }}
+          </a>
+  </mat-option>
+          </mat-autocomplete>
+        </div>
+
+      </div>
+    </form>
+
+    <form [formGroup]="userForm" *ngSwitchCase="'del'" class="delete" >
+      <h1 mat-dialog-title>
+        Delete user
+      </h1>
+      <img src="assets/images/dash-back.png" alt="">
+      <div class="row">
+        <div class="col-12">
+          <input type="text" placeholder="search user"
+          [(ngModel)]="searchTerm" (input)="applyFilter($event)"
+         [matAutocomplete]="auto"
+         class="example-input"
+          >
+          <mat-icon>search</mat-icon>
+          <mat-autocomplete #auto="">
+            <mat-option *ngFor="let item of users$|async" (click)="onDeleteCourse(item.position)"  >
+              {{item.name}} {{item.lastName}}<mat-icon>delete</mat-icon>
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+
+      </div>
+    </form>
+
     </div>
-  </form>
-</div>
-
-
-<div mat-dialog-actions>
-  <button mat-dialog-close mat-button>Cancelar</button>
-  <button (click)="onSubmit()" mat-button>
-    Guardar
-  </button>
-</div>

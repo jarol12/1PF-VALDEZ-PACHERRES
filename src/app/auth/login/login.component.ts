@@ -34,8 +34,6 @@ export class LoginComponent {
     return this.passwordControl.invalid && this.passwordControl.touched;
   }
 
-  onSubmit(): void{
-    
-  }
+
 }
 

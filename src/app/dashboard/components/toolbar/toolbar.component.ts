@@ -6,6 +6,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent {
-  @Output()
+  @Output() miEvento= new EventEmitter<string>();
   toggleSidebar = new EventEmitter();
+
+  onClick() {
+    this.miEvento.emit('Se ha hecho clic en el botón');
+  }
 }

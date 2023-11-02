@@ -1,26 +1,35 @@
-<div class="profile">
-  <img src="https://www.shutterstock.com/image-vector/young-man-anime-style-character-600w-2240084847.jpg" alt="profile-photo" width=120>
-  <h3>Rol</h3>
-  <a href="">Go to profile</a>
+<div class="container-menu">
+  <div class="role-profile">
+    <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+      <i>A</i>
+    </button>
+    <div style="margin-left: 1rem;color: #fff;border: 2px solid #9b7cf2;padding: .4rem 1rem;">ADMIN</div>
+  </div>
+  <div class="profile">
+    <mat-nav-list >
+      <!-- /dashboard me llevara a /dashboard/home -->
+      <mat-list-item routerLink="home" routerLinkActive="active">
+      <a>Home</a>
+      </mat-list-item>
+      <mat-list-item routerLink="users"  routerLinkActive="active">
+        <a>Usuarios</a>
+      </mat-list-item>
+      <mat-list-item routerLink="courses"  routerLinkActive="active">
+        <a>Cursos</a>
+      </mat-list-item>
+      <mat-list-item routerLink="students" routerLinkActive="active">
+        <a>Alumnos</a>
+      </mat-list-item>
+      <mat-list-item  routerLink="enrollments" routerLinkActive="active" >
+        <a>Inscripciones</a>
+      </mat-list-item>
+    </mat-nav-list>
+
+    <mat-card class="example-card ">
+      <mat-card-content>
+        <mat-icon style="font-size: 160px; width: 160px;height: 160px;color: #9b7cf2;">settings_alert</mat-icon>
+      </mat-card-content>
+      <div class="container-circle">2 567</div>
+    </mat-card>
+    <mat-icon  routerLink="/login" style="transform: rotate(180deg); color: #fff; margin-top: 6px;">logout</mat-icon>
 </div>
-<mat-nav-list>
-  <mat-list-item>
-    <mat-icon>home</mat-icon><a>Home</a>
-  </mat-list-item>
-
-  <mat-list-item [activated]="true">
-    <mat-icon >group</mat-icon><a >Usuarios</a>
-  </mat-list-item>
-  <mat-list-item style="display: flex">
-     <a>Cursos</a>
-  </mat-list-item>
-  <mat-list-item>
-    <a>Alumnos</a>
-  </mat-list-item>
-  <mat-list-item>
-  <a>Inscripciones</a>
-  </mat-list-item>
-</mat-nav-list>
-
-
-

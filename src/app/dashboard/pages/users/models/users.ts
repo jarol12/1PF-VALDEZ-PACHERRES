@@ -1,5 +1,5 @@
 export interface User {
-  position: number
+  position: any,
   name: String,
   lastName: String,
   phone:String,

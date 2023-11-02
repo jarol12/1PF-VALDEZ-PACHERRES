@@ -4,6 +4,8 @@ import { UserDialogComponent } from './componets/user-dialog/user-dialog.compone
 import { UserTableComponent } from './componets/user-table/user-table.component';
 import { UsersComponent } from './users.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { UserIdComponent } from './user-id/user-id.component';
 
 
 
@@ -12,11 +14,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     UserDialogComponent,
     UserTableComponent,
-    UsersComponent
+    UsersComponent,
+    UserIdComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports:[UsersComponent]
 })

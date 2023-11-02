@@ -12,12 +12,21 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { UsersModule } from './pages/users/users.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { EnrollmentsComponent } from './pages/enrollments/enrollments.component';
+import { StudentsComponent } from './pages/students/students.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SharedModule } from '../shared/shared.module';
+import { CoursesComponent } from './pages/courses/courses.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SidebarComponent,
     ToolbarComponent,
+    EnrollmentsComponent,
+    StudentsComponent,
+    HomeComponent,
+    CoursesComponent,
   ],
   imports: [
     MatMenuModule,
@@ -29,7 +38,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     MatIconModule,
     MatListModule,
     MatBadgeModule, MatButtonModule, MatIconModule,
-    UsersModule
+    UsersModule,
+    SharedModule
 
   ],
   exports: [DashboardComponent],

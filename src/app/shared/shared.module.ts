@@ -8,21 +8,33 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatFormField } from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FullNamePipe } from './pipes/full-name.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { RouterModule } from '@angular/router';
+import {MatTabsModule} from '@angular/material/tabs';
+import { DiscountPipe } from './pipes/discount.pipe';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
-    FullNamePipe
+    FullNamePipe,
+    DiscountPipe
   ],
   imports: [
     CommonModule,
   ],
   exports:[
+    MatCardModule,
+    RouterModule,
     MatTooltipModule,
     MatTableModule,
     MatIconModule,
@@ -35,7 +47,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FullNamePipe,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatListModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatTabsModule,
+    MatExpansionModule,
+    DiscountPipe,
+    MatDatepickerModule,
   ],
 })
 export class SharedModule { }

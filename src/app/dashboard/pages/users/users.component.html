@@ -1,6 +1,19 @@
-<button mat-raised-button (click)="openUsersDialog()" >
-  <mat-icon>add</mat-icon>
-  create user
+
+<app-user-table  [dataSource]="(users$ | async) || []"></app-user-table>
+
+<button mat-fab (click)="changeCondition()" [ngClass]="{'show-button': condicion1}" color="accent" aria-label="Example icon button with a bookmark icon" class="button-add">
+  <mat-icon id="animation-button" >add</mat-icon>
 </button>
-<app-user-table [dataSource]="users"></app-user-table>
+
+
+
+<div [ngClass]="{'condition': condicion1,'condition2': !condicion1}">
+<div class="container-menu-add">
+  <button   mat-raised-button (click)="openUsersDialog('search')"><mat-icon>search</mat-icon>Search</button>
+    <button mat-raised-button (click)="openUsersDialog('add')"><mat-icon>person_add</mat-icon>Add user</button>
+    <button mat-raised-button (click)="openUsersDialog('del')"><mat-icon>delete</mat-icon>Delete user</button>
+    <button mat-raised-button><mat-icon>close</mat-icon>close</button>
+</div>
+
+</div>
 
