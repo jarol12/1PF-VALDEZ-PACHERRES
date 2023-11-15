@@ -5,7 +5,9 @@ import { UserTableComponent } from './componets/user-table/user-table.component'
 import { UsersComponent } from './users.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { UserIdComponent } from './user-id/user-id.component';
+import { UserIdComponent } from './componets/user-id/user-id.component';
+import { UsersRoutingModule } from './user-routing.module';
+import { TableUserComponent } from './componets/user-id/components/table-user/table-user.component';
 
 
 
@@ -15,9 +17,11 @@ import { UserIdComponent } from './user-id/user-id.component';
     UserDialogComponent,
     UserTableComponent,
     UsersComponent,
-    UserIdComponent
+    UserIdComponent,
+    TableUserComponent
   ],
   imports: [
+    UsersRoutingModule,
     CommonModule,
     SharedModule,
     RouterModule

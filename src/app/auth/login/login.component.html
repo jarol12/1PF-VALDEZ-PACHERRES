@@ -3,45 +3,36 @@
     <div class="buttons"></div>
     <div class="buttons"></div>
     <div class="buttons"></div>
-    <section class="col-7 mt-5 pt-3 one-section">
+    <section class="col-md-6 col-sm-5 mt-5 pt-3 one-section">
       <p style="font-size:1.3rem">APP ADMINISTRACIÓN
       </p>
       <img src="assets/images/dash.png" alt="imgLogin" width="500">
      <p style="font-size:1rem">¡Disfruta de tu experiencia en la aplicación web!</p>
     </section>
-    <section class="col" style="height: 100%;">
+    <section class="col-md-6 col-sm-7 form-section" >
        <h2 class="mt-2">Hello!</h2>
        <h4 class="h2">We are really happy to see you again!</h4>
-      <form  [formGroup]="userForm">
-        <mat-icon style="font-size: 5rem;color: rgb(88, 88, 88); width: 100%; height: 12vh;display: flex;justify-content: center;">account_circle</mat-icon>
+       <div  [ngClass]="{'tambaleo': noUsuarios}" *ngIf="noUsuarios"   style=" display:flex; flex-direction: row;justify-content: center; align-items: center; background-color: #fff9e9;color: #ff6f6f; gap: 10px;">
+        <i class="fa-thin fa-circle-exclamation" style="font-size: 2em;"></i>
+        <p style="display: inline-block; text-align: left ;
+        vertical-align: middle;">Correo electrónico o contraseña incorrecta. Por favor, vuelve a intentarlo nuevamente.</p>
+       </div>
+      <form  [formGroup]="loginForm">
+        <i class="fa-thin fa-user mb-4 mt-4" style="color: #6b4bd3; font-size: 5em; z-index: 4;"></i>
         <mat-form-field >
           <mat-label>email</mat-label>
           <input matInput type="email" formControlName = "email">
         </mat-form-field>
-         <mat-error *ngIf="emailControl.errors?.['pattern']" >
-           Email invalid
-         </mat-error>
-         <mat-error *ngIf="emailControlIsInvalid">
-          Email requerid
-         </mat-error>
         <mat-form-field>
           <mat-label>Password</mat-label>
           <input matInput type="password" formControlName="password">
         </mat-form-field>
-          <mat-error *ngIf="passwordControlIsInvalid">
-            La contraseña es requerida.
-          </mat-error>
-          <mat-error *ngIf="passwordControl.errors?.['minlength']">
-            La contraseña debe tener al menos 8 caracteres
-          </mat-error>
-
-        <a href="forgot-pasword">forgot password</a>
-        <button routerLink="/dashboard" class="mt-4" style="width: 40%;" type="submit" mat-fab extended color="primary">login</button>
+        <button  [disabled]="!loginForm.valid" (click)="login()" class="mt-1" style="width: 40%;" type="submit" mat-fab extended color="primary">login</button>
         <p>Or sign in with</p>
       <span>
-      <button extended mat-fab><i class="fab fa-facebook-f"></i></button>
-      <button extended mat-fab><i class="fab fa-twitter"></i></button>
-      <button extended mat-fab><i class="fab fa-google"></i></button>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-google"></i>
       </span>
       </form>
       <p class="mt-4 d-flex justify-content-end" style="color: #5b5b5c;">Don't have on account? <a href="register" class="ms-1">Signup</a></p>

@@ -11,9 +11,9 @@
 
 
 .container-login .box {
-  height: 86vh;
+  height: auto;
   color: #fff;
-  width: 75%;
+  width: 60%;
   padding: 0, 20px;
   background: rgba(255, 255, 255, 0.1);
   z-index: 10;
@@ -25,6 +25,7 @@
   box-shadow: -0 25px 45px rgba(0,0,0, 0.25);
   section:nth-last-of-type(1){
     background-color: #fff;
+    height: auto;
     color: #000;
     border-radius: 0 20px 20px 0;
     border: 2px solid #f8f8f8;
@@ -41,8 +42,7 @@
   }
 
   .buttons:nth-of-type(1){
-    background-color: #ff6f6f;
-
+    background-color: #ff8c8c;
   }
   .buttons:nth-of-type(2){
     background-color:#3bdb7f;
@@ -53,6 +53,14 @@
     background-color: #70aef7;
     transform: translate(125px);
 
+  }
+
+  section:nth-last-of-type(2){
+    display: flex;
+    flex-direction: column;
+    img{
+      max-width: 100%;
+    }
   }
 }
 
@@ -105,61 +113,26 @@ mat-form-field{
   background-color: #fff;
 }
 
-.container-login .linear-graphic{
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  z-index: 11;
-  left: 40%;
-  div{
-    width: 27px;
-    height: 100px;
-    box-shadow:inset 0 0 4px 0px #000000;
-  }
-  div:nth-of-type(1){
-  background-color: #4ac6ff;
-  border-radius:0 0 20px 20px ;
-  transform: rotate(45deg);
-  }
-  div:nth-of-type(2){
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background-color: #8c78ff;
-    z-index: 3;
-    transform: translateY(-3px) ;
-    }
-  div:nth-of-type(3){
-    background-color: #4ac6ff;
-    transform: translate(23px,-13px) rotate(110deg);
-  }
-  div:nth-of-type(4){
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background-color: #8c78ff;
-    z-index: 4;
-    transform: translate(33px,33px)
-    }
-  div:nth-of-type(5){
-    background-color: #4ac6ff;
-    transform: translate(43px,-17px) rotate(-120deg);
 
 
-  }
-  div:nth-of-type(6){
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background-color: #8c78ff;
-    transform: translate(53px,-13px);
-    z-index: 4;
-    }
-  div:nth-of-type(7){
-    background-color: #4ac6ff;
-    border-radius:0 0 20px 20px ;
-    transform: translate(48px,-40px) rotate(-90deg);
 
+ @keyframes tambaleo {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-1deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
 
+.tambaleo {
+  animation: tambaleo .4s ;
+}
+
+/* Estilos para pantallas más pequeñas que 600px */

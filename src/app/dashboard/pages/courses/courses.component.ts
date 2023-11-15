@@ -19,6 +19,7 @@ export class CoursesComponent {
   ) {
     this.courses$ = this.coursesService.getCourses$();
   }
+  
   panelOpenState = false;
   searchTerm: string =""
   applyFilter(event: Event){

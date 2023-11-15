@@ -7,47 +7,15 @@ import { UsersComponent } from './dashboard/pages/users/users.component';
 import { HomeComponent } from './dashboard/pages/home/home.component';
 import { EnrollmentsComponent } from './dashboard/pages/enrollments/enrollments.component';
 import { StudentsComponent } from './dashboard/pages/students/students.component';
-import { UserIdComponent } from './dashboard/pages/users/user-id/user-id.component';
 import { CourseDetailComponent } from './dashboard/pages/courses/components/course-detail/course-detail.component';
-
+import { UserIdComponent } from './dashboard/pages/users/componets/user-id/user-id.component';
+import { dashboardGuard } from './core/guards/dashboard.guard'
 const routes: Routes = [
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    children: [
-      {
-        path: 'courses',
-        component: CoursesComponent,
-      },
-      {
-        path: 'courses/:id',
-        component: CourseDetailComponent,
-      },
-      {
-        path: 'users',
-        component: UsersComponent,
-      },
-      {
-        path: 'users/:id',
-        component: UserIdComponent,
-      },
-
-      {
-        path: 'home',
-        component: HomeComponent,
-      },
-
-
-      {
-        path: 'enrollments',
-        component: EnrollmentsComponent,
-      },
-
-      {
-        path: 'students',
-        component: StudentsComponent,
-      }
-    ]
+    canActivate:[dashboardGuard],
+    loadChildren: () =>
+    import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
   },
   {
     path: 'login',

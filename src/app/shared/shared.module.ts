@@ -23,7 +23,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { DiscountPipe } from './pipes/discount.pipe';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     FullNamePipe,
@@ -35,6 +35,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   exports:[
     MatCardModule,
     RouterModule,
+    HttpClientModule ,
     MatTooltipModule,
     MatTableModule,
     MatIconModule,

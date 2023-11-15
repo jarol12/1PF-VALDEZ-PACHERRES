@@ -1,51 +1,47 @@
+
 <div>
   <h1>Cursos y Carreras</h1>
-  <mat-tab-group >
+  <mat-tab-group>
     <mat-tab label="First">
       <mat-accordion>
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Self aware panel
+              Panel autoconsciente
             </mat-panel-title>
             <mat-panel-description>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <h1>serch a Burger</h1>
+          <h1>Buscar una hamburguesa</h1>
           <mat-form-field class="example-form-field">
-            <input type="text" matInput type="text" [(ngModel)]="searchTerm" (input)="applyFilter($event)">
+            <input type="text" matInput [(ngModel)]="searchTerm" (input)="applyFilter($event)">
           </mat-form-field>
-          <button mat-raised-button style="margin: 2px;">Add course</button>
+          <button mat-raised-button style="margin: 2px;">Agregar curso</button>
         </mat-expansion-panel>
       </mat-accordion>
-
       <div class="container-courses">
-        <mat-card class="example-card" *ngFor="let item of courses$|async">
+        <mat-card class="example-card" *ngFor="let item of courses$ | async">
           <button (click)="onEditCourse(item.id)">
-            <mat-icon >edit</mat-icon>
-          </button><button>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button>
             <mat-icon (click)="onDeleteCourse(item.id)">delete</mat-icon>
           </button>
           <mat-card-header>
             <mat-card-title>{{item.name}}</mat-card-title>
             <mat-card-subtitle>{{item.category}}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="https://cdn-icons-png.flaticon.com/512/2210/2210184.png" alt={{item.id}}>
+          <img mat-card-image src="https://cdn-icons-png.flaticon.com/512/2210/2210184.png" alt="{{item.id}}">
           <mat-card-actions class="price">
             <mat-card-subtitle style="text-decoration: line-through;">S/.{{item.price}} PEN</mat-card-subtitle>
-            <h3>20% OFF</h3>
-            <h1>S/.{{item.price|discount}}PEN</h1>
+            <h3>20% DE DESCUENTO</h3>
+            <h1>S/.{{item.price | discount}} PEN</h1>
           </mat-card-actions>
           <button mat-raised-button [routerLink]="item.id">Ver detalles</button>
         </mat-card>
       </div>
-
     </mat-tab>
     <mat-tab label="Second">
-
     </mat-tab>
   </mat-tab-group>
-
 </div>
-

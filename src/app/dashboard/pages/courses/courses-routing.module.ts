@@ -1,13 +1,22 @@
+import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CoursesComponent } from './courses.component';
-import { CourseDetailComponent } from './components/course-detail/course-detail.component';
+import { CoursesComponent } from "./courses.component";
+const routes: Routes = [
+  {
+    // /users
+    path: '',
+    component: CoursesComponent,
+  },
+   {
+  //   // /users/detail...
+   path: 'detail/:id',
+   component: CoursesComponent ,
+   },
+];
 
 @NgModule({
-  imports: [
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  declarations: [],
-  providers: [],
 })
+
 export class CourseRoutingModule {}
