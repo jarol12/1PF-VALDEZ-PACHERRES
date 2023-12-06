@@ -1,2 +1,10 @@
-<app-students-table [dataSource]="(students$ | async) || []"></app-students-table>
+<h1 style="font-size: 4rem;position: relative;" class="mt-3">Students</h1>
+<mat-form-field class="example-form-field w-75 ms-2 " appearance="outline">
+  <mat-label>Search a Couse or Career</mat-label>
+  <input  matInput placeholder="Placeholder" type="text" matInput >
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+<button mat-flat-button color="primary" class="ms-2" style="height: 50px;"> <i class="fa-solid fa-plus-large"></i> Agregar curso</button>
+
+<app-students-table ></app-students-table>
 

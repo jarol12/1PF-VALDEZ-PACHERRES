@@ -1,57 +1,48 @@
 import { Component, Inject} from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UsersService } from '../../users.service';
-import { Observable, map } from 'rxjs';
-import { User } from '../../models/users';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { User } from '../../models/users-models';
 @Component({
   selector: 'app-user-dialog',
   templateUrl: './user-dialog.component.html',
   styleUrls: ['./user-dialog.component.scss']
 })
+
 export class UserDialogComponent {
+  hide = true;
   userForm: FormGroup;
-  users$: Observable<User[]>;
   constructor(
-    private fb:FormBuilder,
+    private fb: FormBuilder,
     private matDialogRef: MatDialogRef<UserDialogComponent>,
-    private usersService: UsersService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public user?: User
     ){
-    this.users$ = this.usersService.getUsers$();
 
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       address: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern('[0-9]+')]]
+      telePhone: ['', [Validators.required, Validators.minLength(10)]],
+      profile: ['', Validators.required],
+      dni: ['',[ Validators.required,Validators.minLength(8)]]
     })
-  }
 
-  ngOnInit() {
-    console.log('Datos del usuario:', this.data);
-
-  }
-
-  user = 'add'
-  onSubmit(): void{
-    if(this.userForm.invalid){
-      this.userForm.markAllAsTouched();
-    } else{
-      this.matDialogRef.close(this.userForm.value)
+    if (this.user) {
+      this.userForm.patchValue(this.user);
     }
   }
 
-  searchTerm: string =""
-  applyFilter(event: Event){
-    this.searchTerm = (event.target as HTMLInputElement).value;
-    this.users$ = this.usersService.getUsers$().pipe(
-      map(users => users.filter(user => user.name.toLowerCase().includes(this.searchTerm.toLowerCase())))
-    );
-  }
- onDeleteCourse(courseId: number): void {
-      this.users$ = this.usersService.deleteUsers$(courseId);
+
+
+
+  onSubmit(): void {
+    if (this.userForm.invalid) {
+      this.userForm.markAllAsTouched();
+    } else {
+      this.matDialogRef.close(this.userForm.value);
+    }
   }
 }
+
+
 

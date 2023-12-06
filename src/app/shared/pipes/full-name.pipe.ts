@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { User } from 'src/app/dashboard/pages/users/models/users';
+import { User } from 'src/app/dashboard/pages/users/models/users-models';
 @Pipe({
   name: 'fullName'
 })

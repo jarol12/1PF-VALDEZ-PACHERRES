@@ -1,32 +1,24 @@
-
+<h1 style="font-size: 6rem;" class="m-5">Cursos y Carreras</h1>
 <div>
-  <h1>Cursos y Carreras</h1>
-  <mat-tab-group>
-    <mat-tab label="First">
-      <mat-accordion>
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Panel autoconsciente
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <h1>Buscar una hamburguesa</h1>
-          <mat-form-field class="example-form-field">
-            <input type="text" matInput [(ngModel)]="searchTerm" (input)="applyFilter($event)">
-          </mat-form-field>
-          <button mat-raised-button style="margin: 2px;">Agregar curso</button>
-        </mat-expansion-panel>
-      </mat-accordion>
+  <mat-form-field class="example-form-field w-75 ms-2 " appearance="outline">
+    <mat-label>Search a Couse or Career</mat-label>
+    <input  matInput placeholder="Placeholder" type="text" matInput [(ngModel)]="searchTerm" (input)="applyFilter($event)">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <button mat-flat-button color="primary" class="ms-2" style="height: 50px;" (click)="addCourse()"> <i class="fa-solid fa-plus-large"></i> Agregar curso</button>
+
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+    <mat-tab  label="First">
       <div class="container-courses">
         <mat-card class="example-card" *ngFor="let item of courses$ | async">
-          <button (click)="onEditCourse(item.id)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button>
-            <mat-icon (click)="onDeleteCourse(item.id)">delete</mat-icon>
-          </button>
+          <div class="w-100  d-flex  flex-row justify-content-end">
+            <button class="button-modify  border-0">
+              <mat-icon  (click)="updateCourse(item.id)" color="primary">edit</mat-icon>
+            </button>
+            <button class="button-modify  border-0" style="color: #ff7eb8;">
+              <mat-icon  (click)="deleteCourse(item.id)">delete</mat-icon>
+            </button>
+          </div>
           <mat-card-header>
             <mat-card-title>{{item.name}}</mat-card-title>
             <mat-card-subtitle>{{item.category}}</mat-card-subtitle>

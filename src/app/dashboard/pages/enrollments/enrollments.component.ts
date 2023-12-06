@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EnrollmentsService } from './enrollments.service';
-import { User } from '../users/models/users';
+import { User } from '../users/models/users-models';
+import { MatDialog } from '@angular/material/dialog';
+import { EnrollmentDialogComponent } from './components/enrollment-dialog/enrollment-dialog.component';
 
 @Component({
   selector: 'app-enrollments',
@@ -9,8 +11,19 @@ import { User } from '../users/models/users';
   styleUrls: ['./enrollments.component.scss']
 })
 export class EnrollmentsComponent {
-  enrrollments$: Observable<User[]>;
-  constructor(private enrollmentsService: EnrollmentsService,){
-    this.enrrollments$ = this.enrollmentsService.getUsers$();
+  constructor( private matDialog: MatDialog,){
   }
-}
+
+  addUser(): void {
+    this.matDialog
+      .open(EnrollmentDialogComponent)
+      .afterClosed()
+      .subscribe({
+        next: (v) => {
+          if (!!v) {
+          }
+        },
+      });
+  }
+  }
+

@@ -1,0 +1,137 @@
+.container-login{
+  height: 100vh;
+  width: 100%;
+  background-color: #6b4dd3;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.container-login .box {
+  height: auto;
+  color: #fff;
+  width: 60%;
+  padding: 0, 20px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  display: flex;
+  position: relative;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: -0 25px 45px rgba(0,0,0, 0.25);
+  section:nth-last-of-type(1){
+    background-color: #fff;
+    height: auto;
+    color: #000;
+    border-radius: 0 20px 20px 0;
+    border: 2px solid #f8f8f8;
+  }
+  .buttons{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    border-radius: 50%;
+    transform: translate(20px);
+    box-shadow:inset 0 0 4px 0px #000000;
+
+  }
+
+  .buttons:nth-of-type(1){
+    background-color: #ff8c8c;
+  }
+  .buttons:nth-of-type(2){
+    background-color:#3bdb7f;
+    transform: translate(75px);
+
+  }
+  .buttons:nth-of-type(3){
+    background-color: #70aef7;
+    transform: translate(125px);
+
+  }
+
+  section:nth-last-of-type(2){
+    display: flex;
+    flex-direction: column;
+    img{
+      max-width: 100%;
+    }
+  }
+}
+
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+.container-login .box section:nth-of-type(2) {
+  h2{
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  color: #6248cd;
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  a{
+    display: flex;
+    width: 54%;
+    justify-content: end;
+    color: #7e64d2;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 4;
+  }
+  p{
+    color: #7e64d2;
+  }
+  span{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    button {
+      border-radius: 0;
+      background-color: #fff;
+      color: #000;
+      font-size: 1.2rem;
+    }
+    button:hover{
+      background-color: #f1f1f1;
+    }
+  }
+}
+}
+
+mat-form-field{
+  background-color: #fff;
+}
+
+
+
+
+ @keyframes tambaleo {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-1deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.tambaleo {
+  animation: tambaleo .4s ;
+}
+

@@ -1,19 +1,22 @@
 
-<app-user-table  [dataSource]="(users$ | async) || []"></app-user-table>
+<h1 style="font-size: 4rem;position: relative;" >Users</h1>
+<mat-form-field class="example-form-field w-75 ms-2 " appearance="outline">
+  <mat-label>Search a user</mat-label>
+  <input  matInput placeholder="Placeholder" type="text" matInput >
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+<button (click)="addUser()" mat-flat-button color="primary" class="ms-2" style="height: 50px;"> <i class="fa-solid fa-plus-large"></i> Agregar curso</button>
 
-<button mat-fab (click)="changeCondition()" [ngClass]="{'show-button': condicion1}" color="accent" aria-label="Example icon button with a bookmark icon" class="button-add">
-  <mat-icon id="animation-button" >add</mat-icon>
-</button>
+<div style="  margin-top: 20px; width: 100%; display: flex; justify-content: center; flex-direction: column;align-items: center;">
 
 
+    <app-user-table
+    [dataSource]="(users$ | async) || []"
+    (updateUser)="onEditUser($event)"
+    (deleteUser)="onDeleteUser($event)"
 
-<div [ngClass]="{'condition': condicion1,'condition2': !condicion1}">
-<div class="container-menu-add">
-  <button   mat-raised-button (click)="openUsersDialog('search')"><mat-icon>search</mat-icon>Search</button>
-    <button mat-raised-button (click)="openUsersDialog('add')"><mat-icon>person_add</mat-icon>Add user</button>
-    <button mat-raised-button (click)="openUsersDialog('del')"><mat-icon>delete</mat-icon>Delete user</button>
-    <button mat-raised-button><mat-icon>close</mat-icon>close</button>
-</div>
+></app-user-table>
 
-</div>
+<div >
+
 

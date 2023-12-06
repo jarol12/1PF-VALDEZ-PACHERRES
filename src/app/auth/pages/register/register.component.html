@@ -1,0 +1,23 @@
+<form [formGroup]="formReg">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput type="text" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Address</mat-label>
+    <input formControlName="address" matInput type="text" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone</mat-label>
+    <input formControlName="phone" matInput type="number">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>email</mat-label>
+    <input formControlName="email" matInput type="email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input formControlName="password" matInput type="password">
+  </mat-form-field>
+  <button mat-button (click)='submit()'>Registrarse</button>
+</form>

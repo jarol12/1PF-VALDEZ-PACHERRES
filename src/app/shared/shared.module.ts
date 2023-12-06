@@ -21,21 +21,30 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { RouterModule } from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs';
 import { DiscountPipe } from './pipes/discount.pipe';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { FormErrorsPipe } from './pipes/form-errors.pipe';
+
 @NgModule({
   declarations: [
     FullNamePipe,
-    DiscountPipe
+    DiscountPipe,
+    FormErrorsPipe
   ],
   imports: [
     CommonModule,
   ],
   exports:[
+    FormErrorsPipe,
+    MatSelectModule,
     MatCardModule,
     RouterModule,
     HttpClientModule ,
+    MatNativeDateModule,
     MatTooltipModule,
     MatTableModule,
     MatIconModule,
@@ -56,6 +65,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatExpansionModule,
     DiscountPipe,
     MatDatepickerModule,
+    MatProgressSpinnerModule
   ],
 })
 export class SharedModule { }

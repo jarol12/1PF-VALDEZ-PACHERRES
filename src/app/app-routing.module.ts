@@ -1,45 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './auth/login/login.component';
-import { CoursesComponent } from './dashboard/pages/courses/courses.component';
-import { UsersComponent } from './dashboard/pages/users/users.component';
+import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './dashboard/pages/home/home.component';
-import { EnrollmentsComponent } from './dashboard/pages/enrollments/enrollments.component';
-import { StudentsComponent } from './dashboard/pages/students/students.component';
+import { UsersComponent } from './dashboard/pages/users/users.component';
+import { CoursesComponent } from './dashboard/pages/courses/courses.component';
 import { CourseDetailComponent } from './dashboard/pages/courses/components/course-detail/course-detail.component';
-import { UserIdComponent } from './dashboard/pages/users/componets/user-id/user-id.component';
-import { dashboardGuard } from './core/guards/dashboard.guard'
+import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 const routes: Routes = [
   {
     path: 'dashboard',
-    canActivate:[dashboardGuard],
+    ...canActivate(() => redirectUnauthorizedTo(['auth/login'])),
     loadChildren: () =>
-    import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
 
   {
-    path: 'register',
-    component: LoginComponent,
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
-  {
-    path: 'forgot-pasword',
-    component: LoginComponent,
-  },
+
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: 'auth/login',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-
- }
+export class AppRoutingModule {}

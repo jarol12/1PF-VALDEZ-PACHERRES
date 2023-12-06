@@ -1,10 +1,6 @@
-import { SelectionModel } from '@angular/cdk/collections';
-import { Component, Input } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { User } from '../../models/users';
-import { MatTableDataSource } from '@angular/material/table';
+
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from '../../models/users-models';
 
 @Component({
   selector: 'app-user-table',
@@ -12,7 +8,23 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./user-table.component.scss'],
 })
 export class UserTableComponent {
-  displayedColumns: string[] = ['position', 'fullName', 'address', 'phone', 'email','trans'];
+
   @Input() dataSource!: User[];
-  selection = new SelectionModel<User>(true, []);
+
+  constructor(){
+
+  }
+displayedColumns: string[] = ['fullName', 'address', 'cellPhone', 'email', 'actions'];
+
+  @Output()
+  updateUser = new EventEmitter<User>();
+
+  @Output()
+  deleteUser = new EventEmitter<number>();
+
+  @Output()
+  editUser = new EventEmitter<User>();
+
+
+
 }

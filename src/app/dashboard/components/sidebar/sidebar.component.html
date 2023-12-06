@@ -6,25 +6,24 @@
     <div style="margin-left: 1rem;color: #fff;border: 2px solid #9b7cf2;padding: .4rem 1rem;">ADMIN</div>
   </div>
   <div class="profile">
-    <mat-nav-list >
-    
-      <mat-list-item routerLink="home" routerLinkActive="active">
-      <a>Home</a>
+    <mat-nav-list>
+      <mat-list-item  >
+        <span class="d-flex gap-2" style="color: #fff;"><i class="fa-thin fa-house" ></i><a>Home</a></span>
       </mat-list-item>
       <mat-list-item routerLink="users"  routerLinkActive="active">
-        <a>Usuarios</a>
+        <span class="d-flex gap-2" style="color: #fff;" ><i class="fa-thin fa-users"style="color: #fff;"></i><a>Usuarios</a></span>
       </mat-list-item>
       <mat-list-item routerLink="courses"  routerLinkActive="active">
-        <a>Cursos</a>
+        <span class="d-flex gap-2" style="color: #fff;"><i class="fa-thin fa-laptop-mobile"></i><a>Cursos</a></span>
       </mat-list-item>
       <mat-list-item routerLink="students" routerLinkActive="active">
-        <a>Alumnos</a>
+        <span class="d-flex gap-2" style="color: #fff;"><i class="fa-thin fa-graduation-cap"></i><a>Alumnos</a></span>
       </mat-list-item>
       <mat-list-item  routerLink="enrollments" routerLinkActive="active" >
-        <a>Inscripciones</a>
+        <span class="d-flex gap-2" style="color: #fff;"><i class="fa-thin fa-chart-network"></i><a>Inscripciones</a></span>
       </mat-list-item>
     </mat-nav-list>
 
 
-    <mat-icon  routerLink="/login" style="transform: rotate(180deg); color: #fff; margin-top: 6px;">logout</mat-icon>
+    <mat-icon   style="transform: rotate(180deg); color: #fff; margin-top: 6px;" (click)="logout()">logout</mat-icon>
 </div>

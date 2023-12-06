@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dashboard-students-693fa": {
+      "hosting": {
+        "ProyectoFinalCoderHouse": [
+          "dashboard-students-693fa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dashboard-students-693fa"
+  }
+}

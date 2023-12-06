@@ -1,0 +1,21 @@
+<div class="container-login"  >
+  <div class="box row" *ngIf="(currentNumber | async) === 0 ">
+    <div class="buttons"></div>
+    <div class="buttons"></div>
+    <div class="buttons"></div>
+    <section class="col-md-6 col-sm-5 mt-5 pt-3 one-section">
+      <p style="font-size:1.3rem">APP ADMINISTRACIÓN
+      </p>
+      <img src="assets/images/dash.png" alt="imgLogin" width="500">
+     <p style="font-size:1rem">¡Disfruta de tu experiencia en la aplicación web!</p>
+    </section>
+    <section class="col-md-6 col-sm-7 form-section" >
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+    <div class="spinner-border text-light" role="status"  *ngIf="(currentNumber | async) === 5">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+

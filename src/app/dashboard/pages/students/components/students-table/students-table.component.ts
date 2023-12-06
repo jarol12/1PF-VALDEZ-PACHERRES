@@ -1,6 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, Input } from '@angular/core';
-import { User } from '../../../users/models/users';
+import { User } from '../../../users/models/users-models';
 
 @Component({
   selector: 'app-students-table',
